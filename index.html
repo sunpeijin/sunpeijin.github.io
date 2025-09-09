@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="Academic Webpage" />
+	<meta name="author" content="senli1073" />
+	<title id="title"></title>
+
+	<!-- Icon -->
+	<link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+
+	<!-- Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Tailwind Config -->
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						'primary': '#3948d2',
+						'secondary': '#9f1ae2',
+					},
+					fontFamily: {
+						'sans': ['Mulish', 'system-ui', 'sans-serif'],
+						'display': ['Kanit', 'system-ui', 'sans-serif'],
+						'newsreader': ['Newsreader', 'serif'],
+					}
+				}
+			}
+		}
+	</script>
+
+	<!-- Google fonts-->
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+		rel="stylesheet" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+		rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+
+	<!-- Heroicons for icons (using Tailwind's built-in icons) -->
+
+	<!-- Custom CSS -->
+	<link type="text/css" href="static/css/main.css" rel="stylesheet" />
+	<link type="text/css" href="static/css/wc.min.css" rel="stylesheet" />
+	<!-- For Compatability -->
+	<script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3.32.0/minified.js"></script>
+
+	<!-- Markdown -->
+	<script type="text/javascript" src="static/js/marked.min.js"></script>
+
+	<!-- PDF.js -->
+	<script src="static/js/pdf.min.js"></script>
+
+	<!-- Mathematics -->
+	<script>
+		// See https://docs.mathjax.org/en/latest/index.html for more details.
+		MathJax = {
+			tex: {
+				packages: {},              // extensions to use
+				inlineMath: [              // start/end delimiter pairs for in-line math
+					['$', '$'],
+					['\\(', '\\)']
+				],
+				displayMath: [             // start/end delimiter pairs for display math
+					['$$', '$$'],
+					['\\[', '\\]']
+				],
+				processEscapes: false,      // use \$ to produce a literal dollar sign
+				processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+				processRefs: true,         // process \ref{...} outside of math mode
+				digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
+				tags: 'all',              // or 'ams' or 'all'
+				tagSide: 'right',          // side for \tag macros
+				tagIndent: '0.8em',        // amount to indent tags
+				useLabelIds: true,         // use label name rather than tag for ids
+				maxMacros: 10000,          // maximum number of macro substitutions per expression
+				maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
+				// baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
+				// (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
+				formatError:               // function called when TeX syntax errors occur
+					(jax, err) => jax.formatError(err)
+			}
+		};
+	</script>
+	<script type="text/javascript" id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+	<!-- Core JS-->
+	<script type="text/javascript" src="static/js/scripts.js"></script>
+	<script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+	<script type="text/javascript" src="static/js/main.js"></script>
+
+</head>
+
+<body id="page-top">
+	<!-- Navigation-->
+	<nav class="fixed top-0 w-full bg-white border-b-2 border-blue-600 shadow-sm z-50" id="mainNav">
+		<div class="max-w-7xl mx-auto px-5">
+			<div class="flex justify-between items-center h-16">
+				<a id="page-top-title" class="text-xl font-bold text-gray-900" href="#page-top"></a>
+				<!-- <a href="#page-top"><img src="static/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a> -->
+				<button
+					class="lg:hidden flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-gray-900"
+					type="button" id="navbarToggler" aria-controls="navbarResponsive" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="text-sm mr-2">MENU</span>
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				</button>
+				<div class="hidden lg:flex" id="navbarResponsive">
+					<ul class="flex space-x-8 items-center">
+						<li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#page-top">Home</a>
+						</li>
+						<li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#portfoliopreview">Portfolio
+								Preview</a>
+						</li>
+						<li>
+							<a class="text-gray-700 hover:text-primary transition-colors"
+								href="#professionalskills">ProfessionalSkills</a>
+						</li>
+						<!-- <li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#technicalskills">TechnicalSkills</a>
+						</li> -->
+						<li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#publications">Publications</a>
+						</li>
+						<!-- <li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#books">Books</a>
+						</li> -->
+						<li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#researchgrants">ResearchGrants</a>
+						</li>
+						<!-- <li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#awards">Awards</a>
+						</li> -->
+						<li>
+							<a class="text-gray-700 hover:text-primary transition-colors"
+								href="#conferencepresentations">ConferencePresentations</a>
+						</li>
+						<li>
+							<a class="text-gray-700 hover:text-primary transition-colors"
+								href="#teachinginnavation">TeachingInnavation</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Mobile menu -->
+				<div class="lg:hidden absolute top-16 left-0 w-full bg-white border-b shadow-lg" id="mobileMenu"
+					style="display: none;">
+					<ul class="py-4 px-5 space-y-3">
+						<li><a class="block text-gray-700 hover:text-primary transition-colors" href="#page-top">Home</a></li>
+						<li><a class="block text-gray-700 hover:text-primary transition-colors" href="#portfoliopreview">Portfolio
+								Preview</a></li>
+						<li><a class="block text-gray-700 hover:text-primary transition-colors"
+								href="#professionalskills">ProfessionalSkills</a></li>
+						<!-- <li><a class="block text-gray-700 hover:text-primary transition-colors"
+								href="#technicalskills">TechnicalSkills</a></li> -->
+						<li><a class="block text-gray-700 hover:text-primary transition-colors"
+								href="#publications">Publications</a></li>
+						<!-- <li><a class="block text-gray-700 hover:text-primary transition-colors" href="#books">Books</a> -->
+						</li>
+						<li><a class="block text-gray-700 hover:text-primary transition-colors"
+								href="#researchgrants">ResearchGrants</a></li>
+						<!-- <li><a class="block text-gray-700 hover:text-primary transition-colors" href="#awards">Awards</a></li> -->
+						<li><a class="block text-gray-700 hover:text-primary transition-colors"
+								href="#conferencepresentations">ConferencePresentations</a></li>
+						<li><a class="block text-gray-700 hover:text-primary transition-colors"
+								href="#teachinginnavation">TeachingInnavation</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Masthead-->
+	<header class="bg-gradient-to-br text-white text-center mt-16">
+	</header>
+
+
+	<!-- Home -->
+	<section id="section-resume-biography-3" class="relative hbb-section blox-resume-biography-3 dark"
+		style="padding:6rem 0">
+		<div class="home-section-bg bg-image"
+			style="background-color:#000;background-image:url(/static/assets/svg/stacked-peaks.svg);background-size:cover;background-position:50%;filter:brightness(1)">
+		</div>
+		<div class="resume-biography px-3 flex flex-col md:flex-row justify-center gap-12">
+			<div class="flex-none m-w-[130px] mx-auto md:mx-0 md:mt-12">
+				<div id="profile" class="flex justify-center items-center flex-col">
+					<div class="avatar-wrapper mt-7">
+						<img class="avatar rounded-full bg-white" style="width: 150px; height: 150px;"
+							src="static/assets/img/avatar.png" alt="Peijin Sun, PhD  孙佩锦">
+						<span class="avatar-emoji">🎓</span>
+					</div>
+					<div class="portrait-title dark:text-white">
+						<div class="text-3xl font-bold mb-2 mt-6">Peijin Sun, PhD 孙佩锦</div>
+						<h3 class="font-semibold mb-1">Urban Analytics Spatial Data Science Urban Planning </h3>
+						<div class="mb-2"><a href="https://planning.unc.edu/" target="_blank" rel="noopener">
+								<div>University of North Carolina at Chapel Hill</div>
+							</a></div>
+					</div>
+					<ul class="network-icon dark:text-zinc-100">
+						<li><a href="mailto:sunpeijin75@gmail.com" aria-label="at-symbol" data-toggle="tooltip" data-placement="top"
+								title="E-mail Me"><svg style="height:1.5rem" viewBox="0 0 24 24">
+									<path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-width="1.5"
+										d="M16.5 12a4.5 4.5.0 11-9 0 4.5 4.5.0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25">
+									</path>
+								</svg></a></li>
+						<!-- <li><a href="https://github.com/sunkb-max" target="_blank" rel="noopener" aria-label="brands/github"><svg
+									style="height:1.5rem" fill="currentcolor" viewBox="3 3 18 18">
+									<path
+										d="M12 3C7.0275 3 3 7.12937 3 12.2276c0 4.0833 2.57625 7.5321 6.15374 8.7548C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441 9.77249 20.3249 9.76125 19.5982 9.76125 18.8254 7.5 19.2522 6.915 18.2602 6.735 17.7412 6.63375 17.4759 6.19499 16.6569 5.8125 16.4378 5.4975 16.2647 5.0475 15.838 5.80124 15.8264 6.51 15.8149 7.01625 16.4954 7.18499 16.7723 7.99499 18.1679 9.28875 17.7758 9.80625 17.5335 9.885 16.9337 10.1212 16.53 10.38 16.2993 8.3775 16.0687 6.285 15.2728 6.285 11.7432c0-1.0035.34875-1.834.92249-2.47994C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794c0 0 .753749999999999-.24223 2.47499.94583.72001-.20762 1.48501-.31143 2.25001-.31143C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377c1.7212-1.19959 2.475-.94583 2.475-.94583C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326 17.4113 9.9092 17.76 10.7281 17.76 11.7432c0 3.5411-2.1037 4.3255-4.1063 4.5561C13.98 16.5877 14.2613 17.1414 14.2613 18.0065 14.2613 19.2407 14.25 20.2326 14.25 20.5441 14.25 20.7863 14.4188 21.0746 14.8688 20.9824 16.6554 20.364 18.2079 19.1866 19.3078 17.6162c1.0999-1.5705 1.6917-3.4551 1.6922-5.3886C21 7.12937 16.9725 3 12 3z">
+									</path>
+								</svg></a></li> -->
+						<li><a href="www.linkedin.com/in/peijin-sun-1307b133a" target="_blank" rel="noopener"
+								aria-label="brands/linkedin"><svg style="height:1.5rem" height="1em" viewBox="0 0 448 512">
+									<path fill="currentcolor"
+										d="M416 32H31.9C14.3 32 0 46.5.0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6.0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3.0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2.0 38.5 17.3 38.5 38.5.0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6.0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2.0 79.7 44.3 79.7 101.9V416z">
+									</path>
+								</svg></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="flex-auto max-w-prose md:mt-12">
+				<div class="pt-2 justify-content-center prose prose-slate dark:prose-invert">
+					<div class="bio-text">
+						<h2 id="about-me">About Me</h2>
+						<p>I am a spatial data scientist and interdisciplinary researcher focused on turning complex
+							environmental and urban datasets into actionable insights. My expertise includes geospatial
+							analytics, spatial-statistical modeling with experience integrating multimodal data such as
+							satellite imagery, GPS trajectories, survey results, and user-generated text. I have led 7
+							funded projects and published 20+ peer-reviewed articles, applying LLMs, predictive
+							modeling, and geospatial intelligence to advance urban sustainability, public health, and
+							environmental equity. By combining urban planning knowledge with data science, I develop
+							innovative, evidence-based solutions that inform policy and drive real-world impact.</p>
+					</div>
+				</div><a href="contents/sunpeijin_cv.pdf" target="_blank"
+					class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-primary-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"><svg
+						class="w-3.5 h-3.5 me-2.5" aria-hidden="true" fill="currentcolor" viewBox="0 0 20 20">
+						<path
+							d="M14.707 7.793a1 1 0 00-1.414.0L11 10.086V1.5a1 1 0 00-2 0v8.586L6.707 7.793A1 1 0 105.293 9.207l4 4a1 1 0 001.416.0l4-4a1 1 0 00-.002-1.414z">
+						</path>
+						<path
+							d="M18 12h-2.55l-2.975 2.975a3.5 3.5.0 01-4.95.0L4.55 12H2a2 2 0 00-2 2v4a2 2 0 002 2h16a2 2 0 002-2v-4a2 2 0 00-2-2zm-3 5a1 1 0 110-2 1 1 0 010 2z">
+						</path>
+					</svg> Download CV</a>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-between mt-6 dark:text-gray-300">
+					<div>
+						<div class="section-subheading mb-3">Experience</div>
+						<ul class="list-disc list-inside space-y-1 pl-5">
+							<li>Postdoc, Department of City and Regional Planning                               Sep 2024 - present</li>
+							<li>University of North Carolina at Chapel Hill                                            Chapel Hill, NC</li>
+							<li>Assistant Professor, Urban Planning                                           Jul 2020 – Sep 2024</li>
+							<li>Dalian University of Technology                                                      Dalian, China</li>
+						</ul>
+					</div>
+					<div>
+						<div class="section-subheading mb-3">Education</div>
+						<ul>
+							<li class="flex items-start gap-3">
+								<svg style="" class="flex-shrink-0 w-5 h-5 me-2 mt-1" viewBox="0 0 24 24">
+									<path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M4.26 10.147a60.436 60.436.0 00-.491 6.347A48.627 48.627.0 0112 20.904a48.627 48.627.0 018.232-4.41 60.46 60.46.0 00-.491-6.347m-15.482.0a50.57 50.57.0 00-2.658-.813A59.905 59.905.0 0112 3.493a59.902 59.902.0 0110.399 5.84 51.39 51.39.0 00-2.658.814m-15.482.0A50.697 50.697.0 0112 13.489a50.702 50.702.0 017.74-3.342M6.75 15a.75.75.0 100-1.5.75.75.0 000 1.5m0 0v-3.675A55.378 55.378.0 0112 8.443m-7.007 11.55A5.981 5.981.0 006.75 15.75v-1.5">
+									</path>
+								</svg>
+								<div class="description">
+									<p class="course">Ph.D., Joint-Ph.D., Urban Planning Dalian University of Technology</p>
+									<p class="text-sm">Dalian, China, 2016-2020</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg style="" class="flex-shrink-0 w-5 h-5 me-2 mt-1"
+									viewBox="0 0 24 24">
+									<path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M4.26 10.147a60.436 60.436.0 00-.491 6.347A48.627 48.627.0 0112 20.904a48.627 48.627.0 018.232-4.41 60.46 60.46.0 00-.491-6.347m-15.482.0a50.57 50.57.0 00-2.658-.813A59.905 59.905.0 0112 3.493a59.902 59.902.0 0110.399 5.84 51.39 51.39.0 00-2.658.814m-15.482.0A50.697 50.697.0 0112 13.489a50.702 50.702.0 017.74-3.342M6.75 15a.75.75.0 100-1.5.75.75.0 000 1.5m0 0v-3.675A55.378 55.378.0 0112 8.443m-7.007 11.55A5.981 5.981.0 006.75 15.75v-1.5">
+									</path>
+								</svg>
+								<div class="description">
+									<p class="course">University of North Carolina at Chapel Hill, Master of Engineering, Urban Planning </p>
+									<p class="text-sm">
+										Dalian, China
+										2014-2016</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg style="" class="flex-shrink-0 w-5 h-5 me-2 mt-1"
+									viewBox="0 0 24 24">
+									<path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M4.26 10.147a60.436 60.436.0 00-.491 6.347A48.627 48.627.0 0112 20.904a48.627 48.627.0 018.232-4.41 60.46 60.46.0 00-.491-6.347m-15.482.0a50.57 50.57.0 00-2.658-.813A59.905 59.905.0 0112 3.493a59.902 59.902.0 0110.399 5.84 51.39 51.39.0 00-2.658.814m-15.482.0A50.697 50.697.0 0112 13.489a50.702 50.702.0 017.74-3.342M6.75 15a.75.75.0 100-1.5.75.75.0 000 1.5m0 0v-3.675A55.378 55.378.0 0112 8.443m-7.007 11.55A5.981 5.981.0 006.75 15.75v-1.5">
+									</path>
+								</svg>
+								<div class="description">
+									<p class="course">Bachelor of Engineering, Urban Planning, Dalian University of Technology </p>
+									<p class="text-sm">Dalian, China, 2009-2014</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- PDF Preview Section -->
+	<section id="portfoliopreview" class="py-16 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-5">
+			<div class="mb-8">
+				<h2 id="portfoliopreview-subtitle" class="text-3xl font-bold text-gray-900 mb-4">Portfolio Preview</h2>
+				<p class="text-gray-600">Browse through my portfolio document</p>
+			</div>
+
+			<!-- PDF Viewer Container -->
+			<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+				<!-- PDF Controls -->
+				<div class="flex flex-col sm:flex-row justify-between items-center p-4 bg-gray-100 border-b">
+					<div class="flex items-center space-x-2 sm:space-x-4 mb-4 sm:mb-0">
+						<button id="prevPage"
+							class="flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors text-sm sm:text-base whitespace-nowrap">
+							<svg class="w-4 h-4 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+							</svg>
+							<span class="hidden sm:inline">Previous</span>
+						</button>
+						<span id="pageInfo" class="text-gray-700 font-medium text-sm sm:text-base px-2">Page 1 of 1</span>
+						<button id="nextPage"
+							class="flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors text-sm sm:text-base whitespace-nowrap">
+							<span class="hidden sm:inline">Next</span>
+							<svg class="w-4 h-4 sm:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+								</path>
+							</svg>
+						</button>
+					</div>
+
+					<div class="flex items-center space-x-4">
+						<!-- <button id="zoomOut" class="px-3 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                            </svg>
+                        </button>
+                        <span id="zoomLevel" class="text-gray-700 font-medium">100%</span>
+                        <button id="zoomIn" class="px-3 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </button> -->
+						<a href="contents/Portfolio.pdf" download
+							class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+							<svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+								</path>
+							</svg>
+							Download
+						</a>
+					</div>
+				</div>
+
+				<!-- PDF Canvas Container -->
+				<div class="relative bg-gray-200 flex justify-center items-center pdf-container">
+					<div id="pdfLoadingSpinner" class="text-center">
+						<div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+						<p class="mt-2 text-gray-600">Loading PDF...</p>
+					</div>
+					<canvas id="pdfCanvas" class="max-w-full h-auto shadow-lg" style="display: none;"></canvas>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Professional Skills -->
+	<section class="bg-gray-50 py-16" id="professionalskills">
+		<div class="max-w-7xl mx-auto px-5">
+			<header>
+				<h2 id="professionalskills-subtitle" class="text-3xl font-bold text-gray-900 mb-8">Professional Skills
+				</h2>
+			</header>
+			<div class="prose prose-lg max-w-none" id="professionalskills-md"></div>
+
+		</div>
+	</section>
+	<!-- Technical Skills -->
+	<section class="bg-gradient-to-br   py-16" id="technicalskills">
+		<div class="max-w-7xl mx-auto px-5">
+			<header>
+				<h2 id="technicalskills-subtitle" class="text-3xl font-bold text-gray-900 mb-8">Technical Skills</h2>
+			</header>
+			<div class="prose prose-lg max-w-none" id="technicalskills-md"></div>
+
+		</div>
+	</section>
+	<!-- Featured Publications  -->
+	<section id="papers" class="relative hbb-section blox-collection" style="padding:6rem 0">
+		<div class="max-w-7xl mx-auto px-5">
+			<h2 class="text-3xl font-bold text-gray-900 mb-8">Featured Publications
+					</h2>
+			
+			<div class="flex flex-col items-center">
+				<div class="container mx-auto py-5 lg:py-8">
+					<div class="grid gap-10 md:grid-cols-2 lg:gap-10">
+						<div class="group cursor-pointer">
+							<div class="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
+								<a class="relative block aspect-video" href="/article-1.html">
+									<img
+										alt="Multi-Modal Large Language Model"
+										class="object-fill transition-all" data-nimg="fill" decoding="async" fetchpriority="high" height="540"
+										loading="lazy" src="/static/assets/img/img1.png"
+										style="position:absolute;height:100%;width:100%;inset:0;color:transparent" width="960">
+								</a>
+							</div>
+							<div>
+								<div>
+									<div class="flex gap-3">
+										<a href="/article-1.html">
+											<span
+												class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-700 dark:text-primary-300"
+												>Multi-Modal Large Language Model</span>
+											</a>
+									</div>
+									<h2 class="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white"><a
+											href="/article-1.html"><span
+												class="bg-gradient-to-r from-primary-200 to-primary-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-800 dark:to-primary-900"
+												>Popularity influence mechanism of coastal spaces in urban areas: Insights from multi-modal large language modelsPopularity influence mechanism of coastal spaces in urban areas: Insights from multi-modal large language models
+											</span>
+										</a>
+									</h2>
+									<!-- <div class="grow">
+										<p class="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400"><a
+												href="/article-1.html">This study evaluate multitemporal
+												street improvements via a fine-tuned VLLM (Gemini 3).</a></p>
+									</div>
+									<div class="flex-none">
+										<div class="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400 cursor-default">
+											<time class="truncate text-sm" datetime="2025-04-01">Apr 1, 2025</time>
+										</div>
+									</div> -->
+								</div>
+							</div>
+						</div>
+						<div class="group cursor-pointer">
+							<div class="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
+								<a class="relative block aspect-video" href="/article-2.html"><img
+										alt="Multi-Class Classification of Urban Regeneration Using a Siamese Network: An Analysis with Real-World Data from Portland, Oregon"
+										class="object-fill transition-all" data-nimg="fill" decoding="async" fetchpriority="high" height="540"
+										loading="lazy" src="/static/assets/img/img2.png"
+										style="position:absolute;height:100%;width:100%;inset:0;color:transparent" width="960"></a>
+							</div>
+							<div>
+								<div>
+									<div class="flex gap-3"><a href="/article-2.html"><span
+												class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-700 dark:text-primary-300">
+												Time Series Models and Causal Inference</span></a></div>
+									<h2 class="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white"><a
+											href="/article-2.html"><span
+												class="bg-gradient-to-r from-primary-200 to-primary-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-800 dark:to-primary-900">
+												COVID-19 pandemic changes the outdoor physical activity preference in Chinese city: A 7-year GPS trajectory data analysis</span></a></h2>
+									<!-- <div class="grow">
+										<p class="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400"><a
+												href="/article-2.html">This study proposes a deep learning framework
+												using Siamese networks to classify urban regeneration into four categories
+												based on high-resolution aerial imagery. Trained on 2,000 labeled parcels in
+												Portland, Oregon, the model—especially with a U-Net backbone—achieved over
+												85% accuracy in detecting nuanced changes like redevelopment and demolition.
+												The approach offers a scalable, cost-effective alternative to traditional
+												data sources for monitoring urban regeneration.</a></p>
+									</div>
+									<div class="flex-none">
+										<div class="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400 cursor-default">
+											<time class="truncate text-sm" datetime="2025-03-02">Mar 2, 2025</time>
+										</div>
+									</div> -->
+								</div>
+							</div>
+						</div>
+						<div class="group cursor-pointer">
+							<div class="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
+								<a class="relative block aspect-video" href="/article-3.html"><img
+										alt="LLMs Outperform Traditional NLP in Social Media Analysis for Urban Planning"
+										class="object-fill transition-all" data-nimg="fill" decoding="async" fetchpriority="high" height="540"
+										loading="lazy" src="/static/assets/img/img3.png"
+										style="position:absolute;height:100%;width:100%;inset:0;color:transparent" width="960"></a>
+							</div>
+							<div>
+								<div>
+									<div class="flex gap-3"><a href="/article-3.html"><span
+												class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-700 dark:text-primary-300"
+												>Spatio-temporal Data</span></a></div>
+									<h2 class="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white"><a
+											href="/article-3.html"><span
+												class="bg-gradient-to-r from-primary-200 to-primary-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-800 dark:to-primary-900"
+												>Seasonal variations in urban park characteristics and visitation patterns in Atlanta: A big data study using smartphone user mobility</span></a></h2>
+									<!-- <div class="grow">
+										<p class="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400"><a
+												href="/article-3.html">This paper fine-tuned four SOTA
+												LLM (GPT-4, Claude-3, Qwen2, and LLAMA3) for various social media analysis
+												tasks, and results shows LLM outperform tradtional NLP methods in all
+												areas.</a></p>
+									</div>
+									<div class="flex-none">
+										<div class="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400 cursor-default">
+											<time class="truncate text-sm" datetime="2023-11-25">Nov 25, 2023</time>
+										</div>
+									</div> -->
+								</div>
+							</div>
+						</div>
+						<div class="group cursor-pointer">
+							<div class="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105 dark:bg-gray-800">
+								<a class="relative block aspect-video" href="/article-4.html"><img
+										alt="LLMs Outperform Traditional NLP in Social Media Analysis for Urban Planning"
+										class="object-fill transition-all" data-nimg="fill" decoding="async" fetchpriority="high" height="540"
+										loading="lazy" src="/static/assets/img/img4.png"
+										style="position:absolute;height:100%;width:100%;inset:0;color:transparent" width="960"></a>
+							</div>
+							<div>
+								<div>
+									<div class="flex gap-3"><a href="/article-4.html"><span
+												class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-primary-700 dark:text-primary-300"
+												>Cognitive Computing</span></a></div>
+									<h2 class="text-lg font-semibold leading-snug tracking-tight mt-2 dark:text-white"><a
+											href="/article-4.html"><span
+												class="bg-gradient-to-r from-primary-200 to-primary-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-primary-800 dark:to-primary-900"
+												>How urban environments affect public sentiment and physical activity using a cognitive computing framework</span></a></h2>
+									<!-- <div class="grow">
+										<p class="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400"><a
+												href="/article-4.html">This paper fine-tuned four SOTA
+												LLM (GPT-4, Claude-3, Qwen2, and LLAMA3) for various social media analysis
+												tasks, and results shows LLM outperform tradtional NLP methods in all
+												areas.</a></p>
+									</div>
+									<div class="flex-none">
+										<div class="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400 cursor-default">
+											<time class="truncate text-sm" datetime="2023-11-25">Nov 25, 2023</time>
+										</div>
+									</div> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<!-- Technical Skills  -->
+
+	<!-- Publications -->
+	<section class="bg-gray-50 py-16" id="publications">
+		<div class="max-w-7xl mx-auto px-5">
+			<header>
+				<h2 id="publications-subtitle" class="text-3xl font-bold text-gray-900 mb-8">Publications</h2>
+			</header>
+			<div class="prose prose-lg max-w-none" id="publications-md"></div>
+
+		</div>
+	</section>
+	<!-- Publications  -->
+
+	<!-- Books -->
+	<section class="bg-gradient-to-br   py-16" id="books">
+		<div class="max-w-7xl mx-auto px-5">
+			<header>
+				<h2 id="books-subtitle" class="text-3xl font-bold text-gray-900 mb-8">Books</h2>
+			</header>
+			<div class="prose prose-lg max-w-none" id="books-md"></div>
+
+		</div>
+	</section>
+	<!-- Books  -->
+
+	<!-- Research Grants -->
+	<section class="bg-gray-50 py-16" id="researchgrants">
+		<div class="max-w-7xl mx-auto px-5">
+			<header>
+				<h2 id="researchgrants-subtitle" class="text-3xl font-bold text-gray-900 mb-8">Research Grants</h2>
+			</header>
+			<div class="prose prose-lg max-w-none" id="researchgrants-md"></div>
+
+		</div>
+	</section>
+	<!-- Research Grants  -->
+
+	<!-- Awards -->
+	<section class="bg-gradient-to-br   py-16" id="awards">
+		<div class="max-w-7xl mx-auto px-5">
+			<header>
+				<h2 id="awards-subtitle" class="text-3xl font-bold text-gray-900 mb-8">Awards</h2>
+			</header>
+			<div class="prose prose-lg max-w-none" id="awards-md"></div>
+
+		</div>
+	</section>
+	<!-- Awards -->
+
+	<!-- Conference Presentations -->
+	<section class="bg-gray-50 py-16" id="conferencepresentations">
+		<div class="max-w-7xl mx-auto px-5">
+			<header>
+				<h2 id="conferencepresentations-subtitle" class="text-3xl font-bold text-gray-900 mb-8">Conference
+					Presentations</h2>
+			</header>
+			<div class="prose prose-lg max-w-none" id="conferencepresentations-md"></div>
+
+		</div>
+	</section>
+	<!-- Conference Presentations  -->
+
+	<!-- Teaching Innavation -->
+	<section class="bg-gradient-to-br   py-16" id="teachinginnavation">
+		<div class="max-w-7xl mx-auto px-5">
+			<header>
+				<h2 id="teachinginnavation-subtitle" class="text-3xl font-bold text-gray-900 mb-8">Teaching Innavation
+				</h2>
+			</header>
+			<div class="prose prose-lg max-w-none" id="teachinginnavation-md"></div>
+
+		</div>
+	</section>
+	<!-- Teaching Innavation  -->
+
+
+	<!-- Footer-->
+	<footer class="bg-gray-900 text-center py-8">
+		<div class="max-w-7xl mx-auto px-5">
+			<div class="text-gray-400 text-sm">
+				<div id="copyright-text" class="mb-2"></div>
+				<a class="hover:text-white transition-colors">Github</a>
+				<span class="mx-2">&middot;</span>
+				<a class="hover:text-white transition-colors">License</a>
+			</div>
+		</div>
+	</footer>
+
+</body>
+
+</html>

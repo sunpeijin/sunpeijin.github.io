@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Academic Webpage" />
+  <meta name="author" content="senli1073" />
+  <title id="title"></title>
+
+  <!-- Icon -->
+  <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#3948d2',
+            'secondary': '#9f1ae2',
+          },
+          fontFamily: {
+            'sans': ['Mulish', 'system-ui', 'sans-serif'],
+            'display': ['Kanit', 'system-ui', 'sans-serif'],
+            'newsreader': ['Newsreader', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+
+  <!-- Heroicons for icons (using Tailwind's built-in icons) -->
+
+  <!-- Custom CSS -->
+  <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+  <link type="text/css" href="static/css/wc.min.css" rel="stylesheet" />
+  <!-- For Compatability -->
+  <script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3.32.0/minified.js"></script>
+
+  <!-- Markdown -->
+  <script type="text/javascript" src="static/js/marked.min.js"></script>
+
+  <!-- PDF.js -->
+  <script src="static/js/pdf.min.js"></script>
+
+  <!-- Mathematics -->
+  <script>
+    // See https://docs.mathjax.org/en/latest/index.html for more details.
+    MathJax = {
+      tex: {
+        packages: {},              // extensions to use
+        inlineMath: [              // start/end delimiter pairs for in-line math
+          ['$', '$'],
+          ['\\(', '\\)']
+        ],
+        displayMath: [             // start/end delimiter pairs for display math
+          ['$$', '$$'],
+          ['\\[', '\\]']
+        ],
+        processEscapes: false,      // use \$ to produce a literal dollar sign
+        processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+        processRefs: true,         // process \ref{...} outside of math mode
+        digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
+        tags: 'all',              // or 'ams' or 'all'
+        tagSide: 'right',          // side for \tag macros
+        tagIndent: '0.8em',        // amount to indent tags
+        useLabelIds: true,         // use label name rather than tag for ids
+        maxMacros: 10000,          // maximum number of macro substitutions per expression
+        maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
+        // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
+        // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
+        formatError:               // function called when TeX syntax errors occur
+          (jax, err) => jax.formatError(err)
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Core JS-->
+  <script type="text/javascript" src="static/js/scripts.js"></script>
+  <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+  <script type="text/javascript" src="static/js/main.js"></script>
+
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="fixed top-0 w-full bg-white border-b-2 border-blue-600 shadow-sm z-50" id="mainNav">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="flex justify-between items-center h-16">
+        <a id="page-top-title" class="text-xl font-bold text-gray-900" href="/"></a>
+        <!-- <a href="#page-top"><img src="static/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a> -->
+        <button
+          class="lg:hidden flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-gray-900"
+          type="button" id="navbarToggler" aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="text-sm mr-2">MENU</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div class="hidden lg:flex" id="navbarResponsive">
+          <ul class="flex space-x-8 items-center">
+            <li>
+              <a class="text-gray-700 hover:text-primary transition-colors" href="/#page-top">Home</a>
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-primary transition-colors" href="/#portfoliopreview">Portfolio
+                Preview</a>
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-primary transition-colors"
+                href="/#professionalskills">ProfessionalSkills</a>
+            </li>
+            <!-- <li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#technicalskills">TechnicalSkills</a>
+						</li> -->
+            <li>
+              <a class="text-gray-700 hover:text-primary transition-colors" href="/#publications">Publications</a>
+            </li>
+            <!-- <li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#books">Books</a>
+						</li> -->
+            <li>
+              <a class="text-gray-700 hover:text-primary transition-colors" href="/#researchgrants">ResearchGrants</a>
+            </li>
+            <!-- <li>
+							<a class="text-gray-700 hover:text-primary transition-colors" href="#awards">Awards</a>
+						</li> -->
+            <!-- <li>
+							<a class="text-gray-700 hover:text-primary transition-colors"
+								href="#conferencepresentations">ConferencePresentations</a>
+						</li>
+						<li>
+							<a class="text-gray-700 hover:text-primary transition-colors"
+								href="#teachinginnavation">TeachingInnavation</a>
+						</li> -->
+          </ul>
+        </div>
+        <!-- Mobile menu -->
+        <div class="lg:hidden absolute top-16 left-0 w-full bg-white border-b shadow-lg" id="mobileMenu"
+          style="display: none;">
+          <ul class="py-4 px-5 space-y-3">
+            <li><a class="block text-gray-700 hover:text-primary transition-colors" href="/#page-top">Home</a></li>
+            <li><a class="block text-gray-700 hover:text-primary transition-colors" href="/#portfoliopreview">Portfolio
+                Preview</a></li>
+            <li><a class="block text-gray-700 hover:text-primary transition-colors"
+                href="/#professionalskills">ProfessionalSkills</a></li>
+            <!-- <li><a class="block text-gray-700 hover:text-primary transition-colors"
+								href="#technicalskills">TechnicalSkills</a></li> -->
+            <li><a class="block text-gray-700 hover:text-primary transition-colors"
+                href="/#publications">Publications</a></li>
+            <!-- <li><a class="block text-gray-700 hover:text-primary transition-colors" href="#books">Books</a> -->
+            </li>
+            <li><a class="block text-gray-700 hover:text-primary transition-colors"
+                href="/#researchgrants">ResearchGrants</a></li>
+            <!-- <li><a class="block text-gray-700 hover:text-primary transition-colors" href="#awards">Awards</a></li> -->
+            <!-- <li><a class="block text-gray-700 hover:text-primary transition-colors"
+								href="#conferencepresentations">ConferencePresentations</a></li>
+						<li><a class="block text-gray-700 hover:text-primary transition-colors"
+								href="#teachinginnavation">TeachingInnavation</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead-->
+  <header class="bg-gradient-to-br text-white text-center mt-16">
+  </header>
+
+
+  <div class="page-body my-10">
+    <div class="mx-auto flex max-w-screen-xl">
+      <aside class="hb-sidebar-container max-lg:[transform:translate3d(0,-100%,0)] lg:hidden xl:block">
+      </aside>
+      <nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+      </nav>
+      <article
+        class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+        <main class="w-full min-w-0 max-w-6xl px-6 pt-8 md:px-12">
+          <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">How urban environments
+            affect public sentiment and physical activity using a cognitive computing framework</h1>
+          <div class="mt-4 mb-16">
+            
+            <div class="mt-3">
+              <div></div>
+            </div>
+          </div>
+          <div class="article-header article-container featured-image-wrapper mt-4 mb-16"
+            style="max-width:720px;max-height:405px">
+            <div style="position:relative"><img src="/static/assets/img/img4.png" width="720" height="405" alt=""
+                class="featured-image"></div>
+          </div>
+
+          <div class="prose prose-slate lg:prose-xl dark:prose-invert">
+            <p>Location-based social media data provides a new perspective for understanding the relationship between
+              human behavior and urban environments. However, further research is needed to determine the application of
+              cognitive computing in urban environments and physical activities. This study proposes a cognitive
+              computing framework for urban environments and human activities that extracts knowledge from structured
+              and unstructured data through natural language processing and computer vision techniques. This paper
+              utilizes a Naive Bayes Model constructed based on random reviews, as well as semantic segmentation and
+              instant segmentation algorithms based on convolutional neural networks to obtain information about urban
+              environments and human behavior from social media data and other geospatial resources. This study examines
+              the relationship between the urban environment and residents' activity, including spatiotemporal behavior,
+              public sentiment, and physical activity. The study found statistically significant results in subgroup
+              analyses regarding the effects of urban environments on sentiment and physical activity, which also
+              exhibited a strong social gradient consistent with traditional findings. This study validates the
+              feasibility of using cognitive computing based on social media data to explore environmental behaviors,
+              providing technical support for updating health promotion policies.</p>
+
+          </div>
+          <div class="article-header article-container featured-image-wrapper mt-4 mb-16"
+            style="max-width:720px;max-height:405px">
+            <div style="position:relative"><img src="/static/assets/img/img5.png" width="720" height="405" alt=""
+                class="featured-image"></div>
+          </div>
+          <div class="article-header article-container featured-image-wrapper mt-4 mb-16"
+            style="max-width:720px;max-height:405px">
+            <div style="position:relative"><img src="/static/assets/img/img6.png" width="720" height="405" alt=""
+                class="featured-image"></div>
+          </div>
+          
+
+        </main>
+      </article>
+    </div>
+  </div>
+
+
+  <!-- Footer-->
+  <footer class="bg-gray-900 text-center py-8">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-gray-400 text-sm">
+        <div id="copyright-text" class="mb-2"></div>
+        <a class="hover:text-white transition-colors">Github</a>
+        <span class="mx-2">&middot;</span>
+        <a class="hover:text-white transition-colors">License</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
