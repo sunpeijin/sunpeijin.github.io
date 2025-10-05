@@ -3,7 +3,8 @@ let pdfDoc = null;
 let pageNum = 1;
 let pageRendering = false;
 let pageNumPending = null;
-let scale = 1.0;
+// Set initial scale to 1.2 for better default clarity
+let scale = 1.2;
 let canvas = null;
 let ctx = null;
 let loadingSpinner = null;
@@ -20,18 +21,37 @@ function renderPage(num) {
     pageRendering = true;
     
     pdfDoc.getPage(num).then(function(page) {
+        // Get the device pixel ratio, falling back to 1.0
+        const dpr = window.devicePixelRatio || 1;
         const viewport = page.getViewport({scale: scale});
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+        
+        // Set canvas dimensions with DPI support
+        canvas.width = viewport.width * dpr;
+        canvas.height = viewport.height * dpr;
+        
+        // Scale the context to ensure correct rendering
+        ctx.scale(dpr, dpr);
+        
+        // Set high-quality rendering options
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high'; // This can be 'low', 'medium', or 'high'
         
         const renderContext = {
             canvasContext: ctx,
             viewport: viewport
         };
         
-        const renderTask = page.render(renderContext);
+        // Add rendering parameters for better quality
+        const renderTask = page.render({
+            ...renderContext,
+            enhanceTextSelection: true,
+            renderInteractiveForms: true
+        });
         
         renderTask.promise.then(function() {
+            // Reset the scale for future operations
+            ctx.scale(1/dpr, 1/dpr);
+            
             pageRendering = false;
             if (pageNumPending !== null) {
                 renderPage(pageNumPending);
