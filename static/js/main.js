@@ -75,6 +75,45 @@ function updateEducationSection() {
     `;
 }
 
+function updateNavigationAndSectionOrder() {
+    document.querySelectorAll('a[href="#professionalskills"]').forEach(function(link) {
+        link.textContent = 'Work Experience';
+    });
+
+    document.querySelectorAll('a[href="#teachinginnavation"]').forEach(function(link) {
+        link.textContent = 'Teaching Innovation';
+    });
+
+    document.querySelectorAll('#navbarResponsive ul, #mobileMenu ul').forEach(function(navList) {
+        const workLink = navList.querySelector('a[href="#professionalskills"]');
+        if (!workLink || navList.querySelector('a[href="#technicalskills"]')) return;
+
+        const technicalItem = document.createElement('li');
+        const technicalLink = document.createElement('a');
+        technicalLink.className = workLink.className;
+        technicalLink.href = '#technicalskills';
+        technicalLink.textContent = 'Technical Skills';
+        technicalItem.appendChild(technicalLink);
+        navList.insertBefore(technicalItem, workLink.closest('li'));
+    });
+
+    const technicalSection = document.getElementById('technicalskills');
+    const workSection = document.getElementById('professionalskills');
+    if (technicalSection && workSection && technicalSection.parentElement === workSection.parentElement) {
+        workSection.parentElement.insertBefore(technicalSection, workSection);
+    }
+
+    const workHeading = document.getElementById('professionalskills-subtitle');
+    if (workHeading) {
+        workHeading.textContent = 'Work Experience';
+    }
+
+    const teachingHeading = document.getElementById('teachinginnavation-subtitle');
+    if (teachingHeading) {
+        teachingHeading.textContent = 'Teaching Innovation';
+    }
+}
+
 // Render a page
 function renderPage(num) {
     if (!pdfDoc || !canvas || !ctx) return;
@@ -238,6 +277,7 @@ function loadPDF() {
 window.addEventListener('load', function() {
     updateAboutMeText();
     updateEducationSection();
+    updateNavigationAndSectionOrder();
     
     // Initialize elements
     canvas = document.getElementById('pdfCanvas');
