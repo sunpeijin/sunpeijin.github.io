@@ -1,15 +1,33 @@
-#### Research Innovation & Data- driven Insight
-- **Interdisciplinary Research**: Spearheaded interdisciplinary research in quantitative modeling and data interpretation, translating complex urban and behavioral problems into actionable metrics, published 20+ peer-reviewed journal articles and 1 academic monograph.
+#### Applied AI Product Designer (Digital Health), Mengyan Intelligence Ltd.
+**Jan 2026 - Present**
 
-- **Spatial-Statistical Analysis**: Applied advanced spatial-statistical techniques to analyze large-scale structured and unstructured datasets (e.g., social media text, imagery, mobility data, geospatial data, survey data) to support data-driven decision-making.
+- Leading the design of an Agentic AI-driven health analytics platform integrating clinical records, behavioral data, and environmental exposures to support real-world studies and decision-support tools.
+- Translating complex research and operational needs into AI-enabled workflows, multimodal data systems, and scalable digital health applications with cross-functional teams.
 
-- **Research Data Infrastructure**: Designed and maintained scalable data pipelines, encompassing data mining, cleaning, analysis, and visualization, while ensuring data integrity and statistical accuracy.
+#### Postdoc, University of North Carolina at Chapel Hill, Chapel Hill, NC
+**Sep 2024 - Dec 2025**
 
-- **Data Visualization & Communication**: Translated complex analytical findings into strategic insights and stakeholder-facing deliverables; presented at 7+ conferences, taught 8+ courses, and mentored junior researchers in research design and data science.
+#### Assistant Professor, Dalian University of Technology, Dalian, China
+**Jul 2020 - Sep 2024**
 
-#### Project Management & Team Leadership
-- **Research Leadership (PI)**: Led 6 funded research projects as PI, managing end-to-end workflows, timelines, and interdisciplinary research teams to deliver policy-relevant insights.
+- **Interdisciplinary Research**: Environmental health research translating complex problems into analytical frameworks. 20+ journal articles, 1 monograph; PI on 6 funded projects.
+- **Large-Scale Multimodal Analysis**: Applied advanced spatial-statistical techniques to analyze large-scale structured and unstructured datasets (e.g., text, imagery, mobility data, geospatial data, survey data, demographic data, behavioral health data) to support data-driven decision-making.
+- **Data Science & Communication**: Applied AI/ML methods for data mining, cleaning, analysis, and visualization, ensuring data integrity and statistical rigor. Translated complex analytical results into clear, actionable insights for diverse stakeholders; presented at 7+ conferences and taught 8+ courses.
 
-- **Stakeholder Communication**: Directed two real estate development reprojects (a residential community and cruise terminal) through effective stakeholder engagement and spatial layout execution. 
+#### Strategic Planning Consultant, Part-time, Dalian Urban Development Co., Ltd.
+**Mar 2024 - Dec 2024**
 
-- **Strategic Planning**: Advised on the Medical Mall Project, leveraging geospatial to optimize spatial layout, and aligned planning concepts with business and regulatory goals through stakeholder collaboration.
+- Performed complex spatial market feasibility assessments for commercial developments, integrating demographic trends and healthcare access metrics to identify optimal investment sites.
+- Combined heterogeneous market datasets with GIS evidence to produce actionable strategic reports, successfully guiding senior decision-makers on regional healthcare infrastructure positioning.
+
+#### Geospatial Consultant, Part-time, Dalian Territorial Spatial Planning Co., Ltd.
+**Mar 2021 - Jun 2024**
+
+- Led geospatial data analysis for one comprehensive master plan and two specialized regional plans (coastal zone and green space), designing thematic maps and spatial reports to drive long-term land-use strategies.
+- Processed and modeled large-scale spatial datasets to provide inferential evidence for regional planning policies, ensuring all recommendations were rooted in rigorous geospatial analytics.
+
+#### Architecture, Part-time, DUT Architectural Design Institute
+**Oct 2016 - Dec 2019**
+
+- Directed 2 large-scale urban development projects, a mixed-use residential community and a cruise terminal, coordinating cross-functional stakeholders on site planning, architectural design, project communication, and regulatory approvals.
+- Contributed to the successful delivery of projects totaling over 1 million square feet of development.
