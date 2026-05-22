@@ -35,6 +35,46 @@ function updateAboutMeText() {
     });
 }
 
+function updateEducationSection() {
+    const headings = Array.from(document.querySelectorAll('.section-subheading'));
+    const experienceHeading = headings.find(function(heading) {
+        return heading.textContent.trim() === 'Experience';
+    });
+    const educationHeading = headings.find(function(heading) {
+        return heading.textContent.trim() === 'Education';
+    });
+
+    if (experienceHeading && experienceHeading.parentElement) {
+        experienceHeading.parentElement.remove();
+    }
+
+    if (!educationHeading || !educationHeading.parentElement) return;
+
+    const educationBlock = educationHeading.parentElement;
+    const educationWrapper = educationBlock.parentElement;
+    if (educationWrapper) {
+        educationWrapper.className = 'mt-6 dark:text-gray-300';
+    }
+
+    educationBlock.innerHTML = `
+        <div class="section-subheading mb-3">Education</div>
+        <ul class="space-y-3">
+            <li>
+                <p class="course font-medium">Ph.D., Urban Planning</p>
+                <p class="text-sm">University of North Carolina at Chapel Hill (Joint Program), 2020</p>
+            </li>
+            <li>
+                <p class="course font-medium">Master of Engineering, Urban Systems Engineering</p>
+                <p class="text-sm">Dalian University of Technology, 2016</p>
+            </li>
+            <li>
+                <p class="course font-medium">Bachelor of Engineering, Urban Systems Engineering</p>
+                <p class="text-sm">Dalian University of Technology, 2014</p>
+            </li>
+        </ul>
+    `;
+}
+
 // Render a page
 function renderPage(num) {
     if (!pdfDoc || !canvas || !ctx) return;
@@ -197,6 +237,7 @@ function loadPDF() {
 // Initialize PDF viewer when page loads
 window.addEventListener('load', function() {
     updateAboutMeText();
+    updateEducationSection();
     
     // Initialize elements
     canvas = document.getElementById('pdfCanvas');
