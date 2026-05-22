@@ -86,15 +86,26 @@ function updateNavigationAndSectionOrder() {
 
     document.querySelectorAll('#navbarResponsive ul, #mobileMenu ul').forEach(function(navList) {
         const workLink = navList.querySelector('a[href="#professionalskills"]');
-        if (!workLink || navList.querySelector('a[href="#technicalskills"]')) return;
+        if (workLink && !navList.querySelector('a[href="#technicalskills"]')) {
+            const technicalItem = document.createElement('li');
+            const technicalLink = document.createElement('a');
+            technicalLink.className = workLink.className;
+            technicalLink.href = '#technicalskills';
+            technicalLink.textContent = 'Technical Skills';
+            technicalItem.appendChild(technicalLink);
+            navList.insertBefore(technicalItem, workLink.closest('li'));
+        }
 
-        const technicalItem = document.createElement('li');
-        const technicalLink = document.createElement('a');
-        technicalLink.className = workLink.className;
-        technicalLink.href = '#technicalskills';
-        technicalLink.textContent = 'Technical Skills';
-        technicalItem.appendChild(technicalLink);
-        navList.insertBefore(technicalItem, workLink.closest('li'));
+        const conferenceLink = navList.querySelector('a[href="#conferencepresentations"]');
+        if (conferenceLink) {
+            conferenceLink.textContent = 'Dissemination';
+        }
+
+        const teachingLink = navList.querySelector('a[href="#teachinginnavation"]');
+        const teachingItem = teachingLink ? teachingLink.closest('li') : null;
+        if (teachingItem) {
+            teachingItem.remove();
+        }
     });
 
     const technicalSection = document.getElementById('technicalskills');
@@ -106,6 +117,20 @@ function updateNavigationAndSectionOrder() {
     const workHeading = document.getElementById('professionalskills-subtitle');
     if (workHeading) {
         workHeading.textContent = 'Work Experience';
+    }
+
+    const conferenceHeading = document.getElementById('conferencepresentations-subtitle');
+    if (conferenceHeading) {
+        conferenceHeading.textContent = 'Dissemination';
+    }
+
+    const conferenceContent = document.getElementById('conferencepresentations-md');
+    if (conferenceContent && !document.getElementById('conferencepresentations-section-label')) {
+        const label = document.createElement('h3');
+        label.id = 'conferencepresentations-section-label';
+        label.className = 'text-2xl font-semibold text-gray-900 mb-4';
+        label.textContent = 'Conference Presentations';
+        conferenceContent.parentElement.insertBefore(label, conferenceContent);
     }
 
     const teachingHeading = document.getElementById('teachinginnavation-subtitle');
