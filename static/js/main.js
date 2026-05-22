@@ -13,6 +13,27 @@ let loadingSpinner = null;
 if (typeof pdfjsLib !== 'undefined') {
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'static/js/pdf.worker.min.js';
 }
+function updateAboutMeText() {
+    const aboutHeading = document.getElementById('about-me');
+    const bioText = aboutHeading ? aboutHeading.parentElement : null;
+    if (!bioText) return;
+
+    const paragraphs = [
+        'I am an interdisciplinary data scientist and researcher with over a decade of experience working at the intersection of architecture, urban planning, environmental systems, behavioral data, and health analytics. My work focuses on translating complex multimodal datasets into tangible, real-world insights and decision-support tools through applied AI and data-driven approaches.',
+        'My technical toolkit is built for high-dimensional data. I routinely integrate geospatial, remote sensing, mobility, behavioral, clinical, image, and text-based sources. My methodological expertise spans applied AI/ML, computer vision, NLP, multimodal modeling, predictive analytics, causal inference, and geospatial statistics.',
+        'With a strong track record bridging academic research and industry consulting, I have successfully collaborated across urban development, commercial strategy, and digital health initiatives. By connecting complex data with human behavior and environmental contexts, I am passionate about engineering evidence-based solutions that drive measurable impact across health, urban, and applied AI domains.'
+    ];
+
+    bioText.querySelectorAll('p').forEach(function(paragraph) {
+        paragraph.remove();
+    });
+
+    paragraphs.forEach(function(text) {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = text;
+        bioText.appendChild(paragraph);
+    });
+}
 
 // Render a page
 function renderPage(num) {
@@ -175,6 +196,7 @@ function loadPDF() {
 
 // Initialize PDF viewer when page loads
 window.addEventListener('load', function() {
+    updateAboutMeText();
     
     // Initialize elements
     canvas = document.getElementById('pdfCanvas');
