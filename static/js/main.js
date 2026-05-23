@@ -13,6 +13,13 @@ let loadingSpinner = null;
 if (typeof pdfjsLib !== 'undefined') {
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'static/js/pdf.worker.min.js';
 }
+function updateProfileSubtitle() {
+    const subtitle = document.querySelector('#profile .portrait-title h3');
+    if (subtitle) {
+        subtitle.textContent = 'Spatial Data Science · Urban Analytics · Behavioral Health';
+    }
+}
+
 function updateAboutMeText() {
     const aboutHeading = document.getElementById('about-me');
     const bioText = aboutHeading ? aboutHeading.parentElement : null;
@@ -300,6 +307,7 @@ function loadPDF() {
 
 // Initialize PDF viewer when page loads
 window.addEventListener('load', function() {
+    updateProfileSubtitle();
     updateAboutMeText();
     updateEducationSection();
     updateNavigationAndSectionOrder();
